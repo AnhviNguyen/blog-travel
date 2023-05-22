@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap');
 
 :root{
-    --blue: rgb(122, 147, 246);
+    --blue: orangered;
     --darkblue: rgb(82, 99, 167);
     --box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .5);
 }
@@ -18,14 +18,12 @@
     transition: all .2s linear; 
 }
 
-body{
-    height: 2000px;
-}
 
 html{
     overflow-x: hidden;
     scroll-padding-top: 5px;
     scroll-behavior: smooth;
+
 }
 
 header{
@@ -36,11 +34,63 @@ header{
    backdrop-filter: blur(50px);
    background-color: black;
    color: white;
+   flex-wrap: nowrap;
+   position: relative;
 }
 
 .logo{
     font-size: 30px;
     color: var(--black);
+}
+
+.navbar-after{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    display: flex;
+    background-color: white ;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all .5s ease; 
+    font-size: 15px;
+    height: 100vh;
+    border: 1px solid orangered;
+    color: black;
+    padding-top: 5px;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.menu-icon:hover {
+    color: orangered;
+}
+
+.navbar-after a{
+    display: block;
+    width: 100%;
+    padding: 20px 10px;
+    transition: .1s ease;
+    text-decoration: none;
+}
+
+.navbar-after a:active {
+    color: white !important;
+}
+
+.navbar-after a:hover{
+    border: 1px solid orangered;
+    color: orangered;
+    transform: translateY(-5px);
+    border-radius: 10px;
+}
+
+.navbar-after.open{
+    right: 0;
+    position: fixed;
+    z-index: 1000;
 }
 
 header .navbar a{
@@ -57,7 +107,7 @@ header .navbar a{
     content: '';
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: orangered;
     border-radius: 3px;
     left: 0;
     bottom: 0;
@@ -86,10 +136,25 @@ header .icon .search-icon:hover{
     transform: rotate(90deg);
 }
 
+.row{
+    display: flex;
+}
+
 .row span{
     font-size: 20px;
     margin-right: 5px;
+    padding: 0 10px;
 }
+.row label:hover,
+.row span:hover{
+    color: orangered;
+}
+
+.menu-icon{
+    font-size: 20px;
+    display: none;
+}
+
 
 .fixed-header {
     position: fixed;
@@ -101,14 +166,15 @@ header .icon .search-icon:hover{
 
 .slide{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title-slide{
     font-size: 35px;
     color: white;
     position: absolute;
-    top: 50%;
-    left: 45%;
     z-index: 3;
     font-weight: 700;
     letter-spacing: 10px;
@@ -126,11 +192,12 @@ header .icon .search-icon:hover{
 }
 
 .title-slide:hover{
-    color: var(--blue)
+    color: orangered;
 }
 
 section{
     padding: 50px 100px 50px 120px;
+    width: 100%;
 }
 
 .link-filter a{   
@@ -177,24 +244,22 @@ section{
   .filer{
     width: 120px;
     height: 55px;
-    background-color: var(--blue);
+    background-color: orangered;
     color: white;
     border-radius: 5px;
     transition: .4s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 20px;
     
   }
 
   .filer:hover{
      background-color: transparent;
      color: black;
-     border: 2px solid var(--blue);
+     border: 1px solid orangered;
   }
 
   .filter-link{
-    border: 1px solid lightgray;
+    border: 1px solid orangered;
     padding: 18px;
     width: 500px;
     border-radius: 3px;
@@ -214,7 +279,8 @@ section{
     width: 350px;
     height: 350px;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
+    min-width: 100px; 
 }
 
 .category:hover img{
@@ -250,10 +316,9 @@ section{
 }
 
 .homestay{
-    width: 400px;
-    height: 480px;
+    width: 100%;
+    height: 450px;
     border: 1px solid lightgray;
-    min-width: 400px;
     border-radius: 5px;
     padding: 25px;
 }
@@ -282,8 +347,8 @@ section{
 }
 
 .homestay-img{
-    height: 250px;
-    width: 350px;
+    height: 100%;
+    width: 100%;
     position: relative;
     margin-bottom: 20px;
     object-fit: cover;
@@ -311,7 +376,7 @@ section{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(36, 75, 153, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
     top: 0;
     left: 0;
 }
@@ -367,6 +432,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .blog-slide-img{
@@ -417,7 +483,7 @@ section{
 }
 
 .introduce{
-    min-width: 350px;
+    min-width: 100px;
 }
 
 .introduce-img{
@@ -430,6 +496,7 @@ section{
     transition: .9s;
     overflow: hidden;
     border-radius: 5px;
+    min-width: 200px;
 }
 
 .introduce-img::after{
@@ -467,6 +534,8 @@ section{
     height: 100%;
     object-fit: cover;
     transition: 0.5s ease; 
+    min-width: 150px;
+    min-height: 180px;
 }
 
 .blog-support{
@@ -474,7 +543,6 @@ section{
     color: lightgray;
     text-align: center;
     min-width: 200px;
-    font-size: 16px;
     margin-bottom: 100px;
 }
 
@@ -487,7 +555,7 @@ section{
 .blog-main-img{
     width: 100%;
     height: 800px;
-    margin: 50px 0 60px ;
+    margin: 50px 0 60px 0;
     object-fit: cover;
     border-radius: 5px;
     transition: .8s;
@@ -517,6 +585,7 @@ section{
     text-align: left;
     color: black;
     line-height: 30px;
+    width: 100%;
 }
 
 .blog-main-content p{
@@ -726,7 +795,7 @@ section{
 }
 
 .post{
-    width: 300px;
+    width: 100%;
     display: flex;
     gap: 30px;
     justify-content: space-between;
@@ -739,6 +808,7 @@ section{
     border: 1px black solid;
     border-radius: 5px;
 }
+
 
 .post-info h6{
     margin-top: 20px;
@@ -825,6 +895,10 @@ section{
     transition: .8s ease;
 }
 
+.introduce-box{
+    width: 310px;
+}
+
 .follow{
     position: relative;
     display: flex;
@@ -850,9 +924,175 @@ section{
 
 
 
-@media(max-width: 800px){
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1450px){
+    .post-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .introduce-box{
+        width: 100%;
+     }
+
+     .introduce-img{
+        width: 100%;
+        height: 100%;
+     }
+
+     .post img{
+        height: 50%;
+        width: 50%;
+     }
+
+     .post{
+        width: 100%;
+        font-size: 14px;
+     }
+
+    
+}
+
+
+
+@media only screen and (max-width: 900px){
+    html{
+        font-size: 13px;
+    }
+    section{
+        padding: 10px;
+    }
+
+    .blog-main-support{
+        height: 400px;
+        width: 100%;
+    }
+
+    .blog-author span{
+        font-size: 12px;
+    }
+    .introduce-box,
+    .introduce,
+    .introduce-box,
+    .blog-support{
+        width: 100%;
+     }
+
+     .post-box{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     }
+
+     .introduce-img{
+        width: 100%;
+        height: 100%;
+     }
+
+     .post img{
+        height: 200px;
+        width: 200px;
+     }
+
+     .post{
+        font-size: 15px;
+     }
+   
+}
+
+@media only screen and (max-width: 850px){
+    .homestay{
+        height: 350px;
+    }
+    .navbar-after,
+    .menu-icon{
+        display: block;
+    }
+    .navbar{
+        display: none;
+    }
 
 }
+
+
+
+@media only screen and (max-width: 700px){
+    html{
+        font-size: 14px;
+    }
+    section{
+        padding: 10px;
+    }
+
+    .blog-main-img{
+        height: 400px;
+    }
+
+    .blog-author span{
+        font-size: 12px;
+    }
+    .filter-link,
+    .introduce-box
+    .blog-support img{
+        width: 100%;
+     }
+
+     .homestay{
+        width: 100%;
+        height: 100%;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        padding: 25px;
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 400px){
+    html{
+        font-size: 12px;
+        line-height: 25px;
+    }
+    section{
+        padding: 10px;
+    }
+
+    .blog-main-img{
+        height: 200px;
+    }
+
+    .blog-support{
+        width: 100%;
+    }
+    
+
+    .blog-author span{
+        font-size: 10px;
+    }
+
+    .blog-support img{
+        width: 100%;
+     }
+
+     .category-box,
+     .category{
+        width: 100%;
+     }
+}
+
+
 
 
 

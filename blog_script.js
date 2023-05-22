@@ -1,3 +1,16 @@
+let menu = document.querySelector('.menu-icon');
+let navbar = document.querySelector('.navbar-after');
+
+menu.onclick = () =>{
+  navbar.classList.toggle('open');
+  if (navbar.classList.contains('open')) {
+    document.body.style.backgroundColor = 'gray';
+  } else {
+    document.body.style.backgroundColor = ''; 
+  }
+};
+
+
 window.addEventListener('scroll', function() {
     if (window.pageYOffset >= 300) {
         document.querySelector('header').classList.add('fixed-header');
@@ -14,7 +27,7 @@ var swiper = new Swiper(".mySwiper", {
   });
 
   var swiper1 = new Swiper(".mySwiper1", {
-    spaceBetween: 30,
+    spaceBetween: 20,
     centeredSlides: true,
     autoplay: {
       delay: 5500,
