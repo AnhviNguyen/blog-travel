@@ -12,7 +12,7 @@ menu.onclick = () =>{
 
 
 window.addEventListener('scroll', function() {
-    if (window.pageYOffset >= 300) {
+    if (window.pageYOffset >= 0) {
         document.querySelector('header').classList.add('fixed-header');
     } else {
         document.querySelector('header').classList.remove('fixed-header');
